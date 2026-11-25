@@ -5,8 +5,12 @@ import { fetchPosts, createPost } from '../lib/api.js';
 import { readAllData, writeData, deleteItem } from '../lib/db.js';
 import { showLocalNotification } from '../lib/notifications.js';
 
+// Las publicaciones más recientes primero
+const newestFirst = (list) => [...list].sort((a, b) => String(b.id).localeCompare(String(a.id)));
+
 export default function Feed({ showToast }) {
-  const [posts, setPosts] = useState([]);
+  const [posts, setPostsRaw] = useState([]);
+  const setPosts = useCallback((list) => setPostsRaw(newestFirst(list || [])), []);
   const [pending, setPending] = useState([]);
   const [modalOpen, setModalOpen] = useState(false);
   const [source, setSource] = useState('');
@@ -41,7 +45,7 @@ export default function Feed({ showToast }) {
       .catch((err) => console.log('Sin conexión, se usan datos locales', err));
 
     loadPending();
-  }, [loadPending]);
+  }, [loadPending, setPosts]);
 
   // Aviso del Service Worker cuando termina la sincronización
   useEffect(() => {
@@ -64,7 +68,7 @@ export default function Feed({ showToast }) {
 
     navigator.serviceWorker.addEventListener('message', handleMessage);
     return () => navigator.serviceWorker.removeEventListener('message', handleMessage);
-  }, [loadPending, showToast]);
+  }, [loadPending, showToast, setPosts]);
 
   function openModal() {
     setModalOpen(true);

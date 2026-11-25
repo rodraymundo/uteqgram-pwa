@@ -224,8 +224,13 @@ function updateUI(data) {
     return;
   }
 
-  for (var i = 0; i < data.length; i++) {
-    createCard(data[i]);
+  // Las publicaciones más recientes primero
+  var sorted = data.slice().sort(function(a, b) {
+    return String(b.id).localeCompare(String(a.id));
+  });
+
+  for (var i = 0; i < sorted.length; i++) {
+    createCard(sorted[i]);
   }
 }
 

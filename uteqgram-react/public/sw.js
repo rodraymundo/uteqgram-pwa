@@ -1,5 +1,5 @@
 // Service Worker de UTEQGram (versión React)
-var CACHE_STATIC_NAME = 'react-static-v1';
+var CACHE_STATIC_NAME = 'react-static-v2';
 var CACHE_DYNAMIC_NAME = 'react-dynamic-v1';
 
 var SUPABASE_URL = 'https://oxszjpoaxbuhmpuoclga.supabase.co';

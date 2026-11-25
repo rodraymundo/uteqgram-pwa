@@ -1,0 +1,93 @@
+#create-post {
+    z-index: 1001;
+    position: fixed;
+    width: 100%;
+    min-height: 100vh;
+    overflow-y: scroll;
+    bottom: 0;
+    top: 56px;
+    background: white;
+    text-align: center;
+    /*display:none;*/
+    transform: translateY(1000vh);
+    transition: transform 0.3s;
+}
+
+.main-image {
+    max-width: 100%;
+    margin: auto;
+    display: block;
+}
+
+.floating-button {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 1000;
+}
+
+.input-section {
+    display: block;
+    margin: 10px auto;
+}
+
+.shared-moment-card.mdl-card {
+    margin: 10px auto;
+    width: 80%;
+}
+
+@media (min-width: 600px) {
+    .shared-moment-card.mdl-card {
+        width: 60%;
+    }
+}
+
+@media (min-width: 1000px) {
+    .shared-moment-card.mdl-card {
+        width: 45%;
+    }
+}
+
+.shared-moment-card .mdl-card__title {
+    height: 140px;
+}
+
+@media (min-height: 700px) {
+    .shared-moment-card .mdl-card__title {
+        height: 160px;
+    }
+}
+
+@media (min-height: 1000px) {
+    .shared-moment-card .mdl-card__title {
+        height: 200px;
+    }
+}
+
+/* Cámara y vista previa */
+#player,
+#image-preview {
+    display: none;
+    width: 90%;
+    max-width: 480px;
+    margin: 10px auto;
+    border-radius: 4px;
+    background: #000;
+}
+
+#canvas {
+    display: none;
+}
+
+#pick-image {
+    display: none;
+    margin: 10px auto;
+}
+
+#pick-image h6 {
+    margin: 8px 0;
+}
+
+.pending-card .mdl-card__supporting-text {
+    color: #ff4081;
+}

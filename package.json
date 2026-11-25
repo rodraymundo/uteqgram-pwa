@@ -1,0 +1,12 @@
+{
+  "name": "proyecto UTEQGram",
+  "version": "1.0.0",
+  "description": "App sencilla parecida a Instagram.",
+  "main": "index.js",
+  "scripts": {
+    "start": "http-server public -c-1 -p 8080"
+  },
+  "devDependencies": {
+    "http-server": "^14.1.1"
+  }
+}

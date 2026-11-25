@@ -1,0 +1,307 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Roboto', Helvetica, Arial, sans-serif;
+  background: #fafafa;
+}
+
+.text-center {
+  text-align: center;
+}
+
+/* ----- Encabezado ----- */
+.app-header {
+  position: sticky;
+  top: 0;
+  z-index: 900;
+  display: flex;
+  align-items: center;
+  height: 64px;
+  padding: 0 16px;
+  background: #3f51b5;
+  color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
+}
+
+.app-title {
+  font-size: 20px;
+  margin-left: 8px;
+}
+
+.spacer {
+  flex: 1;
+}
+
+.menu-button {
+  background: none;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  display: none;
+}
+
+.nav-desktop {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.nav-link {
+  color: rgba(255, 255, 255, 0.85);
+  text-decoration: none;
+  padding: 8px 16px;
+  font-weight: 500;
+}
+
+.nav-link.active {
+  color: #fff;
+  border-bottom: 2px solid #ff4081;
+}
+
+/* ----- Menú lateral (móvil) ----- */
+.drawer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 260px;
+  background: #fff;
+  z-index: 1100;
+  transform: translateX(-100%);
+  transition: transform 0.25s;
+  box-shadow: 2px 0 6px rgba(0, 0, 0, 0.2);
+}
+
+.drawer.open {
+  transform: translateX(0);
+}
+
+.drawer-title {
+  display: block;
+  padding: 20px 24px;
+  font-size: 20px;
+  color: #3f51b5;
+}
+
+.nav-drawer {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.nav-drawer .nav-link {
+  color: #424242;
+  width: 100%;
+  padding: 14px 24px;
+}
+
+.nav-drawer .nav-link.active {
+  border-bottom: none;
+  background: #e8eaf6;
+}
+
+.nav-drawer .enable-notifications {
+  margin: 16px;
+}
+
+.drawer-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 1050;
+}
+
+@media (max-width: 839px) {
+  .menu-button {
+    display: inline-flex;
+  }
+  .nav-desktop {
+    display: none;
+  }
+}
+
+.offline-banner {
+  background: #ff4081;
+  color: #fff;
+  text-align: center;
+  padding: 6px;
+  font-size: 14px;
+}
+
+/* ----- Feed ----- */
+.main-image {
+  max-width: 100%;
+  margin: auto;
+  display: block;
+}
+
+.page-content {
+  padding-bottom: 90px;
+}
+
+.data-source {
+  text-align: center;
+  color: #757575;
+  font-size: 13px;
+  margin: 0;
+}
+
+.empty {
+  color: #757575;
+}
+
+.shared-moment-card.mdl-card {
+  margin: 10px auto;
+  width: 80%;
+}
+
+@media (min-width: 600px) {
+  .shared-moment-card.mdl-card {
+    width: 60%;
+  }
+}
+
+@media (min-width: 1000px) {
+  .shared-moment-card.mdl-card {
+    width: 45%;
+  }
+}
+
+.shared-moment-card .mdl-card__title {
+  height: 180px;
+  background-size: cover;
+  background-position: center;
+}
+
+.shared-moment-card .mdl-card__title-text {
+  color: #fff;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
+}
+
+.shared-moment-card .mdl-card__supporting-text {
+  text-align: center;
+  width: 100%;
+}
+
+.pending-card .mdl-card__supporting-text {
+  color: #ff4081;
+}
+
+.floating-button {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 1000;
+}
+
+/* ----- Formulario de nueva publicación ----- */
+#create-post {
+  position: fixed;
+  top: 64px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1001;
+  overflow-y: auto;
+  background: #fff;
+  text-align: center;
+  padding: 16px 0 40px;
+  animation: slide-up 0.3s;
+}
+
+@keyframes slide-up {
+  from { transform: translateY(100%); }
+  to { transform: translateY(0); }
+}
+
+#player,
+#image-preview {
+  width: 90%;
+  max-width: 480px;
+  margin: 10px auto;
+  display: block;
+  border-radius: 4px;
+  background: #000;
+}
+
+#canvas {
+  display: none;
+}
+
+#pick-image {
+  margin: 10px auto;
+}
+
+#pick-image h6 {
+  margin: 8px 0;
+}
+
+.input-section {
+  width: 90%;
+  max-width: 320px;
+  margin: 12px auto;
+  text-align: left;
+}
+
+.input-section label {
+  display: block;
+  font-size: 13px;
+  color: #3f51b5;
+}
+
+.input-section input {
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid #bdbdbd;
+  padding: 6px 0;
+  font-size: 16px;
+  outline: none;
+}
+
+.input-section input:focus {
+  border-bottom: 2px solid #3f51b5;
+}
+
+#create-post .mdl-button {
+  margin: 8px;
+}
+
+/* ----- Ayuda ----- */
+.help-content {
+  padding: 16px;
+}
+
+.help-card.mdl-card {
+  width: 90%;
+  max-width: 700px;
+  margin: 10px auto;
+}
+
+.help-card h6 {
+  margin: 16px 0 4px;
+  color: #3f51b5;
+}
+
+/* ----- Mensajes (snackbar) ----- */
+.toast {
+  position: fixed;
+  left: 50%;
+  bottom: 0;
+  transform: translate(-50%, 100%);
+  min-width: 280px;
+  max-width: 90%;
+  padding: 14px 24px;
+  background: #323232;
+  color: #fff;
+  border-radius: 2px 2px 0 0;
+  z-index: 1200;
+  transition: transform 0.25s;
+  text-align: center;
+}
+
+.toast.visible {
+  transform: translate(-50%, 0);
+}

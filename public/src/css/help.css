@@ -1,0 +1,18 @@
+.mdl-button {
+    margin: 10px;
+}
+
+.help-content {
+    padding: 16px;
+}
+
+.help-card.mdl-card {
+    width: 90%;
+    max-width: 700px;
+    margin: 10px auto;
+}
+
+.help-card h6 {
+    margin: 16px 0 4px;
+    color: #3f51b5;
+}
